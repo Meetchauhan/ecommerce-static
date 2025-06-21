@@ -9,11 +9,19 @@ import Cart from "./pages/cart/Cart";
 import Login from "./pages/login/Login";
 import Layout from "./components/layout/Layout";
 import ProductDetail from "./pages/productDetail.jsx/ProductDetail";
+import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
 
 function App() {
   return (
     <Routes>
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/"
         element={
@@ -38,14 +46,7 @@ function App() {
           </Layout>
         }
       />
-      <Route
-        path="/login"
-        element={
-          <Layout>
-            <Login />
-          </Layout>
-        }
-      />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }

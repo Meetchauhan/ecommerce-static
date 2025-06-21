@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
+import { useState } from "react";
 import { replace, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
   const initialValues = {
     email: "",
@@ -15,16 +17,27 @@ const Login = () => {
     initialValues: initialValues,
     onSubmit: (value, action) => {
       console.log("value", value);
+      localStorage.setItem("email", value.email);
       if (values.email === auth.email && values.password === auth.password) {
         action.resetForm();
         navigate("/dashboard", { replace: true });
+      } else {
+        setShowError(true);
       }
+      setTimeout(() => {
+        setShowError(false);
+      }, [3000]);
     },
   });
   return (
     <div className="h-dvh bg-gray-600 p-4 flex justify-center items-center">
       <div className="flex justify-center items-center bg-gray-400 w-[80%] p-10">
         <form onSubmit={handleSubmit} className="w-[50%]">
+          {showError && (
+            <div className="text-red-600 text-center">
+              Invalid Email or Password
+            </div>
+          )}
           <h2 className="text-2xl text-center mb-5">Login</h2>
           <div className="mb-3">
             <input
