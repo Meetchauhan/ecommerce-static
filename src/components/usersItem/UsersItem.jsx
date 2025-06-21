@@ -14,9 +14,6 @@ const UsersItem = ({ id, name, email, role, handleDelete, updateUser }) => {
         >
           Delete
         </div>
-        <div className="" onClick={updateUser}>
-          Update User
-        </div>
       </div>
     </div>
   );

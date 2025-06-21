@@ -18,13 +18,21 @@ const userSlice = createSlice({
                 user.id !== action.payload.id
             )
         },
+        updateUser: (state, action) => {
+            const { id, updatedData } = action.payload;
+            const userIndex = state.data.findIndex(user => user.id === id);
+            if (userIndex !== -1) {
+                state.data[userIndex] = { ...state.data[userIndex], ...updatedData };
+            }
+        },
         searchUser: (state, action) => {
             state.userEmail = action.payload
         },
 
+
     }
 })
 
-export const { addUser, deleteUser, searchUser } = userSlice.actions
+export const { addUser, deleteUser, updateUser, searchUser } = userSlice.actions
 
 export default userSlice.reducer
