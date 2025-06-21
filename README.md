@@ -1,6 +1,3 @@
 # Ecommerce
 
-## Admin Login
-
-email: "stackdot@gmail.com",
-password: "stackdot@123",
+## Admin Login details shared in mail
