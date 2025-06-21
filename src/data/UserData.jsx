@@ -1,27 +1,27 @@
 const userData = [
   {
     id: 0,
-    name: "User One",
+    name: "Meet Chauhan",
     email: "userOne@gmail.com",
-    role: "admin",
+    role: "User",
   },
   {
     id: 1,
-    name: "User Two",
+    name: "Vishal Bhil",
     email: "userTwo@gmail.com",
-    role: "admin",
+    role: "User",
   },
   {
     id: 2,
-    name: "User Three",
+    name: "Akash Chudasama",
     email: "userThree@gmail.com",
-    role: "admin",
+    role: "User",
   },
   {
     id: 3,
-    name: "User Four",
+    name: "Dhruv Chauhan",
     email: "userFour@gmail.com",
-    role: "admin",
+    role: "User",
   },
 ];
 
