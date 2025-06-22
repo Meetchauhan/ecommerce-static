@@ -16,7 +16,6 @@ const Login = () => {
   const { values, error, touched, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: (value, action) => {
-      console.log("value", value);
       localStorage.setItem("email", value.email);
       if (values.email === auth.email && values.password === auth.password) {
         action.resetForm();
@@ -26,20 +25,25 @@ const Login = () => {
       }
       setTimeout(() => {
         setShowError(false);
-      }, [3000]);
+      }, 3000);
     },
   });
   return (
-    <div className="h-dvh bg-gray-600 p-4 flex justify-center items-center">
-      <div className="flex justify-center items-center bg-gray-400 w-[80%] p-10">
-        <form onSubmit={handleSubmit} className="w-[50%]">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
+      <div className="w-full max-w-md bg-gray-800 rounded-2xl shadow-2xl p-10">
+        <h2 className="text-3xl font-bold text-amber-400 text-center mb-8">
+          Login
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
           {showError && (
-            <div className="text-red-600 text-center">
+            <div className="text-red-500 text-center font-semibold mb-2">
               Invalid Email or Password
             </div>
           )}
-          <h2 className="text-2xl text-center mb-5">Login</h2>
-          <div className="mb-3">
+          <div>
+            <label className="block text-gray-200 mb-2" htmlFor="email">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -47,10 +51,13 @@ const Login = () => {
               value={values.email}
               placeholder="Email"
               required
-              className="border-2 border-black w-full h-12 p-1 rounded-md bg-white"
+              className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:border-amber-400 transition"
             />
           </div>
-          <div className="mb-4">
+          <div>
+            <label className="block text-gray-200 mb-2" htmlFor="password">
+              Password
+            </label>
             <input
               type="password"
               name="password"
@@ -58,12 +65,12 @@ const Login = () => {
               required
               onChange={handleChange}
               value={values.password}
-              className="border-2 border-black w-full h-12 p-1 rounded-md bg-white"
+              className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:border-amber-400 transition"
             />
           </div>
           <div className="text-center">
-            <button className="border-2 border-black p-2 cursor-pointer rounded-md bg-white">
-              Submit
+            <button className="w-full bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 rounded-lg transition">
+              Sign In
             </button>
           </div>
         </form>

@@ -13,7 +13,7 @@ const SearchUser = () => {
   return (
     <div className="">
       <input
-        className="w-xl border-2 border-black p-2 m-5"
+        className="w-md border-2 border-white p-2 m-5 rounder text-white"
         type="text"
         placeholder="Search User"
         onChange={(e) => setSearchData(e.target.value)}

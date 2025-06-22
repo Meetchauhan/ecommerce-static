@@ -21,12 +21,18 @@ const UpdateUserForm = () => {
       action.resetForm();
     },
   });
+
   return (
-    <div className="h-dvh bg-gray-600 p-4 flex justify-center items-center">
-      <div className="flex justify-center items-center bg-gray-400 w-[80%] p-10">
-        <form onSubmit={handleSubmit} className="w-[50%]">
-          <h2 className="text-2xl text-center mb-5">Update</h2>
-          <div className="mb-3">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
+      <div className="w-full max-w-md bg-gray-900 rounded-2xl shadow-2xl p-10">
+        <h2 className="text-3xl font-bold text-amber-400 text-center mb-8">
+          Update User
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-gray-200 mb-2" htmlFor="id">
+              ID
+            </label>
             <input
               type="number"
               name="id"
@@ -34,10 +40,13 @@ const UpdateUserForm = () => {
               placeholder="Id"
               required
               value={values.id}
-              className="border-2 border-black w-full h-12 p-1 rounded-md bg-white"
+              className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:border-amber-400 transition"
             />
           </div>
-          <div className="mb-3">
+          <div>
+            <label className="block text-gray-200 mb-2" htmlFor="name">
+              Name
+            </label>
             <input
               type="text"
               name="name"
@@ -45,10 +54,13 @@ const UpdateUserForm = () => {
               required
               onChange={handleChange}
               value={values.name}
-              className="border-2 border-black w-full h-12 p-1 rounded-md bg-white"
+              className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:border-amber-400 transition"
             />
           </div>
-          <div className="mb-3">
+          <div>
+            <label className="block text-gray-200 mb-2" htmlFor="email">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -56,10 +68,13 @@ const UpdateUserForm = () => {
               required
               onChange={handleChange}
               value={values.email}
-              className="border-2 border-black w-full h-12 p-1 rounded-md bg-white"
+              className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:border-amber-400 transition"
             />
           </div>
-          <div className="mb-4">
+          <div>
+            <label className="block text-gray-200 mb-2" htmlFor="role">
+              Role
+            </label>
             <input
               type="text"
               name="role"
@@ -67,12 +82,12 @@ const UpdateUserForm = () => {
               required
               onChange={handleChange}
               value={values.role}
-              className="border-2 border-black w-full h-12 p-1 rounded-md bg-white"
+              className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:border-amber-400 transition"
             />
           </div>
           <div className="text-center">
-            <button className="border-2 border-black p-2 cursor-pointer rounded-md bg-white">
-              Submit
+            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition">
+              Update
             </button>
           </div>
         </form>
